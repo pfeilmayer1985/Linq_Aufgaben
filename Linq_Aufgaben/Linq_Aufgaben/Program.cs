@@ -11,14 +11,64 @@ namespace Linq_Aufgaben
 {
     public class Program
     {
+
+
         static void Main(string[] args)
         {
+            //Aufgabe 12
+            //Erstelle eine Klasse Studenten public class Students  
+            //Fülle die Liste der Studenten mit Folgenden Werten
+            //Frage den Nutzer nach einer Zahl zwischen 1 und 6, und gebe dann
+            //die jeweiligen Studenten aus, welche 1 (am meisten Punkte) 6 (am wenigsten Punkte) hat. 
+
+
+            Console.Write("\nLINQ : Find the nth Maximum Grade Point achieved by the students from the list of student : ");
+            Console.Write("\n------------------------------------------------------------------------------------------\n");
+            Console.Write("Which maximum grade point(1st, 2nd, ..., 6th) you want to find  : ");
+            int userChoice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n");
+
+            Students e = new Students();
+
+            var stulist = e.GtStuRec();
+            var students = (from stuMast in stulist
+                            group stuMast by stuMast.GrPoint into g
+                            orderby g.Key descending
+                            select new
+                            {
+                                StuRecord = g.ToList()
+                            }).ToList();
+
+            students[userChoice - 1].StuRecord
+                .ForEach(i => Console.WriteLine($" Id : {i.StuId},  Name : {i.StuName},  achieved Grade Point : {i.GrPoint}"));
+
+            Console.ReadLine();
+
+
+
+            //Aufgabe 11
+            //Speichere die Werte des angegeben String[] in einem gesamten String mit einem Komma separiert. Gebe diesen String anschließend aus.
+            //string[] arr1 = new string[4] { "cat", "dog", "cow", "tiger" };
+
+
+            /*
+            string[] arr1 = new string[4] { "cat", "dog", "cow", "tiger" };
+
+            string arrayToString = String.Join(", ", arr1.Select(s => s.ToString()));
+
+            Console.Write("\nHere is the string below created with elements of the above array  :\n\n");
+            Console.WriteLine(arrayToString);
+            Console.Write("\n");
+
+
+            Console.ReadLine();
+            */
 
             //Aufgabe 10
             //Lasse den Nutzer einen Satz eingeben, in welchen er bestimmte Wörter in UPPER CASE schreibt. 
             //Gebe anschließend nur die Wörter aus welche komplett mit UPPERCASE geschrieben wurden.-
 
-
+            /*
             Console.Write("\nLINQ : Find the uppercase words in a string : ");
             Console.Write("\n----------------------------------------------\n");
             Console.WriteLine("Input a sentence. A few words must be written in UPPERCASE : ");
@@ -35,7 +85,7 @@ namespace Linq_Aufgaben
             }
 
             Console.ReadLine();
-
+            */
 
             //Aufgabe 9
             //Frage den Nutzer wie viele Einträge er ausgeben möchte, sortiere die Liste den Werten nach absteigend
