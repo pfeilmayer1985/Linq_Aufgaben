@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,8 +12,96 @@ namespace Linq_Aufgaben
     {
         static void Main(string[] args)
         {
-            //Aufgabe 5
+            //Aufgabe 7
+            //Gebe die Städte aus, welche mit einem bestimmten Buchstaben beginnen, sowie mit einem weiteren Buchstaben Enden. Gestalte es variabel.
 
+            string chst, chen;
+
+            string[] cities =
+            {
+                "ROME","LONDON","NAIROBI","CALIFORNIA","ZURICH","NEW DELHI","AMSTERDAM","ABU DHABI", "PARIS"
+            };
+
+            Console.Write("\nLINQ : Find the string which starts and ends with a specific character : ");
+            Console.Write("\n-----------------------------------------------------------------------\n");
+            Console.Write("\nThe cities are : 'ROME','LONDON','NAIROBI','CALIFORNIA','ZURICH','NEW DELHI','AMSTERDAM','ABU DHABI','PARIS' \n");
+
+            Console.Write("\nInput starting character for the string : ");
+            chst = Console.ReadLine();
+            Console.Write("\nInput ending character for the string : ");
+            chen = Console.ReadLine();
+
+            if (chst.Any(char.IsLower))
+            {
+                chst = chst.ToUpper();
+            }
+
+            if (chen.Any(char.IsLower))
+            {
+                chen = chen.ToUpper();
+            }
+
+
+
+
+
+            var _result = from x in cities
+                          where x.StartsWith(chst)
+                          where x.EndsWith(chen)
+                          select x;
+            Console.Write("\n\n");
+
+            foreach (var city in _result)
+            {
+                Console.Write("The city starting with {0} and ending with {1} is : {2} \n", chst, chen, city);
+            }
+
+            Console.ReadLine();
+
+            //Aufgabe 6
+
+
+            /*
+            //Gebe die Zahl, das Auftreten der Zahl im Array, sowie die Multiplikation der Zahl mit der Zahl ihres Auftretens
+
+            int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
+
+            var timesBy = from int z in nums
+                          group z by z into y
+                          select y;
+
+            foreach (var arrEle in timesBy)
+            {
+                Console.WriteLine(arrEle.Key + "\t" + arrEle.Count() + "\t" + arrEle.Sum());
+            }
+
+            Console.ReadLine();
+            */
+
+
+
+            //Aufgabe 5a
+
+            /*
+            string[] dayWeek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
+            Console.Write("\nLINQ : Display the name of the days of a week : ");
+            Console.Write("\n------------------------------------------------\n");
+
+
+            var days = from WeekDay in dayWeek
+                       select WeekDay;
+            foreach (var WeekDay in days)
+            {
+                Console.WriteLine(WeekDay);
+            }
+            Console.WriteLine();
+
+            Console.ReadLine();
+            */
+
+            //Aufgabe 5
+            /*
             Console.Write("\nLINQ : Display the characters and frequency of character from giving string : ");
             Console.Write("\n----------------------------------------------------------------------------\n");
             Console.Write("Input the string : ");
@@ -27,6 +117,9 @@ namespace Linq_Aufgaben
                 Console.WriteLine("Character " + ArrEle.Key + ": " + ArrEle.Count() + " times");
             }
             Console.ReadLine();
+            */
+
+
 
             //Aufgabe 4
             /*
