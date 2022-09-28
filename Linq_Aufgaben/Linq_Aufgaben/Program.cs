@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -15,13 +16,134 @@ namespace Linq_Aufgaben
 
         static void Main(string[] args)
         {
+
+            //Aufgabe 16
+            //Verkette die zwei Arrays indem das erste Element der ersten Liste mit dem ersten
+            //Element der zweiten Liste (2. Element der 1. Liste mit 2. Element der 2. Liste ….)
+            //als String gespeichert wird. 
+
+
+
+
+
+
+
+            //Aufgabe 15
+            //Lösche nun das Element „P“ der obigen Listen indem du es direkt in der Methode Remove suchst und übergibst.
+
+
+            /*
+            List<string> listOfString = new List<string>();
+            listOfString.Add("m");
+            listOfString.Add("n");
+            listOfString.Add("o");
+            listOfString.Add("p");
+            listOfString.Add("q");
+
+
+            Console.Write("\nLINQ : Remove items from list by creating object internally by filtering  : ");
+            Console.Write("\n--------------------------------------------------------------------------\n");
+
+            var _result1 = from y in listOfString
+                           select y;
+            Console.Write("Here is the list of items : \n");
+            foreach (var tchar in _result1)
+            {
+                Console.WriteLine($"Char: {tchar} ");
+            }
+
+            listOfString.Remove(listOfString.FirstOrDefault(en => en == "p"));
+
+
+            var _result = from z in listOfString
+                          select z;
+            Console.Write("\nHere is the list after removing the item 'p' from the list : \n");
+            foreach (var rChar in _result)
+            {
+                Console.WriteLine($"Char: {rChar} ");
+            }
+
+            Console.ReadLine();
+            */
+
+            //Aufgabe 14
+            //Entferne ein Element mittels der Remove Methode indem du davor über FirstOrDefault das Element „o“ erst findest.
+
+
+            /*
+            List<string> listOfString = new List<string>();
+            listOfString.Add("m");
+            listOfString.Add("n");
+            listOfString.Add("o");
+            listOfString.Add("p");
+            listOfString.Add("q");
+
+
+            Console.Write("\nLINQ : Remove items from list using remove function : ");
+            Console.Write("\n----------------------------------------------------\n");
+
+            var _result1 = from y in listOfString
+                           select y;
+            Console.Write("Here is the list of items : \n");
+            foreach (var tchar in _result1)
+            {
+                Console.WriteLine($"Char: {tchar} ");
+            }
+
+            string newstr = listOfString.FirstOrDefault(en => en == "o");
+            listOfString.Remove(newstr);
+
+
+            var _result = from z in listOfString
+                          select z;
+            Console.Write("\nHere is the list after removing the item 'o' from the list : \n");
+            foreach (var rChar in _result)
+            {
+                Console.WriteLine($"Char: {rChar} ");
+            }
+
+            Console.ReadLine();
+            */
+
+
+            //Aufgabe 13
+            //Zähle die Anzahl der jeweiligen File-Extensions im gegebenen Array.
+            //string[] arr1 = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };
+            //Und gebe es dann aus mit
+            //Console.WriteLine($"{count} File(s) with {extension} Extension")
+
+            /*
+            string[] arr1 = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };
+
+            Console.Write("\nLINQ : Count file extensions and group it : ");
+            Console.Write("\n------------------------------------------\n");
+
+            Console.Write("\nThe files are : aaa.frx, bbb.TXT, xyz.dbf,abc.pdf");
+            Console.Write("\n                aaaa.PDF,xyz.frt, abc.xml, ccc.txt, zzz.txt\n");
+
+            Console.Write("\nHere is the group of extension of the files : \n\n");
+
+            var fGrp = arr1.Select(file => Path.GetExtension(file).TrimStart('.').ToLower())
+                     .GroupBy(z => z, (fExt, extCtr) => new
+                     {
+                         Extension = fExt,
+                         Count = extCtr.Count()
+                     });
+
+            foreach (var m in fGrp)
+                Console.WriteLine($"{m.Count} File(s) with {m.Extension} Extension ");
+            Console.ReadLine();
+            */
+
+
+
             //Aufgabe 12
             //Erstelle eine Klasse Studenten public class Students  
             //Fülle die Liste der Studenten mit Folgenden Werten
             //Frage den Nutzer nach einer Zahl zwischen 1 und 6, und gebe dann
             //die jeweiligen Studenten aus, welche 1 (am meisten Punkte) 6 (am wenigsten Punkte) hat. 
 
-
+            /*
             Console.Write("\nLINQ : Find the nth Maximum Grade Point achieved by the students from the list of student : ");
             Console.Write("\n------------------------------------------------------------------------------------------\n");
             Console.Write("Which maximum grade point(1st, 2nd, ..., 6th) you want to find  : ");
@@ -43,7 +165,7 @@ namespace Linq_Aufgaben
                 .ForEach(i => Console.WriteLine($" Id : {i.StuId},  Name : {i.StuName},  achieved Grade Point : {i.GrPoint}"));
 
             Console.ReadLine();
-
+            */
 
 
             //Aufgabe 11
