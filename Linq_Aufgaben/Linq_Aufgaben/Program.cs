@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,98 @@ namespace Linq_Aufgaben
     {
         static void Main(string[] args)
         {
+
+            //Aufgabe 9
+            //Frage den Nutzer wie viele Einträge er ausgeben möchte, sortiere die Liste den Werten nach absteigend
+            //und gebe anschließend die n Einträge aus die der Nutzer sehen möchte. (Verwende die .Take() - Methode)
+            List<int> templist = new List<int>();
+
+            Console.Write("\nLINQ : How many entries in the list do you want: ");
+            Console.Write("\n------------------------------------------------\n");
+            int numOfEntries = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < numOfEntries; i++)
+            {
+                Console.Write($"\nEnter entry {i + 1} to the list: ");
+                templist.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+
+            Console.Clear();
+            Console.Write("\nLINQ : Display top nth  records from the list : ");
+            Console.Write("\n----------------------------------------------\n");
+            Console.WriteLine("\nThe members of the list are : ");
+            foreach (var element in templist)
+            {
+                Console.WriteLine(element + " ");
+            }
+
+            Console.Write("How many records you want to display ? : ");
+            int outputEntries = Convert.ToInt32(Console.ReadLine());
+
+            templist.Sort();
+
+            Console.Write($"The bottom {outputEntries} records from the list are : \n");
+
+            foreach (int topNumber in templist.Take(outputEntries))
+            {
+                Console.WriteLine(topNumber);
+            }
+
+            templist.Reverse();
+
+            Console.Write($"The top {outputEntries} records from the list are : \n");
+
+            foreach (int topNumber in templist.Take(outputEntries))
+            {
+                Console.WriteLine(topNumber);
+            }
+
+
+            Console.ReadLine();
+
+
+
+            //Aufgabe 8
+            //Lasse den Nutzer eine Zahl eingeben, wie viele Einträge er hinzufügen möchte.
+            //Frage anschließend nach den jeweiligen Werten, bis die Anzahl der Listelemente erreicht ist. 
+            //Frage Anschließend nach einer Zahl und gebe nur die Elemente der Liste aus, welche größer als die Eingabe ist.
+
+
+            /*
+            List<int> templist = new List<int>();
+            Console.Write("\nLINQ : Accept the members of a list and display the members more than a specific value : ");
+            Console.Write("\n----------------------------------------------------------------------------------------\n");
+
+            Console.Write("Input the number of members on the List : ");
+            int numMembersOfTheList = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < numMembersOfTheList; i++)
+            {
+                Console.Write($"Member {i + 1} : ");
+                int memlist = Convert.ToInt32(Console.ReadLine());
+                templist.Add(memlist);
+            }
+
+            Console.Write("\nInput the value above you want to display the members of the List : ");
+            int aboveThisValue = Convert.ToInt32(Console.ReadLine());
+
+            List<int> FilterList = templist.FindAll(x => x > aboveThisValue);
+            Console.WriteLine("\nThe numbers greater than {0} are : ", aboveThisValue);
+
+            foreach (var num in FilterList)
+            {
+                Console.WriteLine(num);
+            }
+
+
+            Console.ReadLine();
+            */
+
+
             //Aufgabe 7
             //Gebe die Städte aus, welche mit einem bestimmten Buchstaben beginnen, sowie mit einem weiteren Buchstaben Enden. Gestalte es variabel.
 
+            /*
             string chst, chen;
 
             string[] cities =
@@ -42,9 +132,6 @@ namespace Linq_Aufgaben
             }
 
 
-
-
-
             var _result = from x in cities
                           where x.StartsWith(chst)
                           where x.EndsWith(chen)
@@ -57,6 +144,10 @@ namespace Linq_Aufgaben
             }
 
             Console.ReadLine();
+
+            */
+
+
 
             //Aufgabe 6
 
