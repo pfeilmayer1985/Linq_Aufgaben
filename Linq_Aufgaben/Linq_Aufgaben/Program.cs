@@ -56,8 +56,23 @@ namespace Linq_Aufgaben
 
             Console.Write("The product is : \n");
 
-            var neueArray = new string[setOfStringsArray.Length];
+            string x = string.Join(", ", setOfStringsArray.ElementAt(0), setOfIntsArray.ElementAt(0));
+            Console.WriteLine(x);
+            string y = string.Join(", ", setOfStringsArray.ElementAt(1), setOfIntsArray.ElementAt(1));
+            Console.WriteLine(y);
+            string z = string.Join(", ", setOfStringsArray.ElementAt(2), setOfIntsArray.ElementAt(2));
+            Console.WriteLine(z);
 
+            for(int i = 0; i < setOfStringsArray.Length; i++)
+            {
+                string a = string.Join(", ", setOfStringsArray.ElementAt(i), setOfIntsArray.ElementAt(i));
+                Console.WriteLine(a);
+            }
+
+
+
+            var neueArray = new string[setOfStringsArray.Length];
+            
 
             var combine = setOfStringsArray.Zip(setOfIntsArray, (a, c) => new { setOfStringsArray = a, setOfIntsArray = c });
 
