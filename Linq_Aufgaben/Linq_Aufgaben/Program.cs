@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -17,15 +18,72 @@ namespace Linq_Aufgaben
         static void Main(string[] args)
         {
 
+            //Aufgabe 17
+            //Erstelle das Kartesische Produkt dieser beiden Listen.
+            //X1,X2,X3,Y1,Y2,Y3,Z1,Z2,Z3
+
+            /*
+            var setOfStringsArray = new string[] { "X", "Y", "Z" };
+            var setOfIntsArray = new int[] { 1, 2, 3 };
+
+            Console.Write("\nLINQ : Generate a cartesian product of two sets : ");
+            Console.Write("\n------------------------------------------------\n");
+
+            var cartesianProduct = from letter in setOfStringsArray
+                                   from number in setOfIntsArray
+                                   select new { letter, number };
+
+            Console.Write("The cartesian product are : \n");
+            foreach (var productItem in cartesianProduct)
+            {
+                Console.WriteLine(productItem);
+                //Console.WriteLine(productItem.letter + " " + productItem.number);
+            }
+            Console.ReadLine();
+            */
+
             //Aufgabe 16
             //Verkette die zwei Arrays indem das erste Element der ersten Liste mit dem ersten
             //Element der zweiten Liste (2. Element der 1. Liste mit 2. Element der 2. Liste ….)
             //als String gespeichert wird. 
 
+            var setOfStringsArray = new string[] { "X", "Y", "Z" };
+            var setOfIntsArray = new int[] { 1, 2, 3 };
+
+            Console.Write("\nLINQ : Bind the elements of two sets : ");
+            Console.Write("\n--------------------------------------\n");
+
+
+            Console.Write("The product is : \n");
+
+            var neueArray = new string[setOfStringsArray.Length];
+
+
+            var combine = setOfStringsArray.Zip(setOfIntsArray, (a, c) => new { setOfStringsArray = a, setOfIntsArray = c });
+
+            foreach (var a in combine)
+            {
+                Console.WriteLine(a.setOfStringsArray + a.setOfIntsArray);
+            }
+
+            //for (int i = 0; i < setOfStringsArray.Length; i++)
+            //{
+            //    neueArray[i] = setOfIntsArray[i] + setOfStringsArray[i];
+
+            //}
+
+            //foreach (var result in neueArray)
+            //{
+            //    Console.WriteLine(result);
+            //}
 
 
 
 
+
+
+
+            Console.ReadLine();
 
 
             //Aufgabe 15
