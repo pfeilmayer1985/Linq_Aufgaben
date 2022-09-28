@@ -14,9 +14,35 @@ namespace Linq_Aufgaben
         static void Main(string[] args)
         {
 
+            //Aufgabe 10
+            //Lasse den Nutzer einen Satz eingeben, in welchen er bestimmte Wörter in UPPER CASE schreibt. 
+            //Gebe anschließend nur die Wörter aus welche komplett mit UPPERCASE geschrieben wurden.-
+
+
+            Console.Write("\nLINQ : Find the uppercase words in a string : ");
+            Console.Write("\n----------------------------------------------\n");
+            Console.WriteLine("Input a sentence. A few words must be written in UPPERCASE : ");
+            string strNew = Console.ReadLine();
+
+            var upWord = strNew.Split(' ')
+                       .Where(x => String.Equals(x, x.ToUpper(),
+                       StringComparison.Ordinal));
+
+            Console.Write("\nThe UPPER CASE words are :\n ");
+            foreach (string strRet in upWord)
+            {
+                Console.WriteLine(strRet);
+            }
+
+            Console.ReadLine();
+
+
             //Aufgabe 9
             //Frage den Nutzer wie viele Einträge er ausgeben möchte, sortiere die Liste den Werten nach absteigend
             //und gebe anschließend die n Einträge aus die der Nutzer sehen möchte. (Verwende die .Take() - Methode)
+
+
+            /*
             List<int> templist = new List<int>();
 
             Console.Write("\nLINQ : How many entries in the list do you want: ");
@@ -38,6 +64,10 @@ namespace Linq_Aufgaben
                 Console.WriteLine(element + " ");
             }
 
+            Console.ReadLine();
+            Console.Clear();
+
+
             Console.Write("How many records you want to display ? : ");
             int outputEntries = Convert.ToInt32(Console.ReadLine());
 
@@ -50,6 +80,8 @@ namespace Linq_Aufgaben
                 Console.WriteLine(topNumber);
             }
 
+            Console.WriteLine();
+
             templist.Reverse();
 
             Console.Write($"The top {outputEntries} records from the list are : \n");
@@ -61,7 +93,7 @@ namespace Linq_Aufgaben
 
 
             Console.ReadLine();
-
+            */
 
 
             //Aufgabe 8
@@ -293,5 +325,6 @@ namespace Linq_Aufgaben
 
 
         }
+
     }
 }
